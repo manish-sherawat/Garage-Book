@@ -7,6 +7,10 @@ class PartDto {
 
   @IsNumber()
   qty: number;
+
+  @IsOptional()
+  @IsString()
+  name?: string;
 }
 
 export class CreateJobCardDto {
