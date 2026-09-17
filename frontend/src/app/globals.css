@@ -1,0 +1,643 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GarageBook Pro — Design System 2026
+   Accent: Garage Green (#0a7c4b)  |  No blue/purple anywhere
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Outfit', 'Inter', sans-serif;
+
+  /* ── Brand Accent: Professional Garage Green ─────────────── */
+  --accent:          #0a7c4b;
+  --accent-hover:    #086b40;
+  --accent-light:    #e8f8f2;
+  --accent-border:   #a7e3cc;
+  --accent-text:     #064e33;
+
+  /* ── Canvas & Surfaces (Light Mode) ─────────────────────── */
+  --bg-canvas:       #f5f5f4;
+  --bg-card:         #ffffff;
+  --bg-card-subtle:  #fafaf9;
+  --bg-card-alt:     #f0f0ef;
+
+  /* ── Borders (Light Mode) ────────────────────────────────── */
+  --border-color:    #e5e5e3;
+  --border-subtle:   #d4d4d0;
+  --border-active:   #a8a8a3;
+
+  /* ── Typography (Light Mode) ─────────────────────────────── */
+  --text-main:       #1c1c1a;
+  --text-muted:      #57534e;
+  --text-subtle:     #78716c;
+
+  /* ── UI Tokens ───────────────────────────────────────────── */
+  --primary-black:   #1c1917;
+  --primary-hover:   #292524;
+
+  /* ── Semantic Feedback Tokens (No Purple) ────────────────── */
+  --success:         #10b981;
+  --success-light:   #d1fae5;
+  --warning:         #f59e0b;
+  --warning-light:   #fef3c7;
+  --danger:          #ef4444;
+  --danger-light:    #fee2e2;
+  --info:            #0ea5e9;
+  --info-light:      #e0f2fe;
+
+  /* ── Shadows ─────────────────────────────────────────────── */
+  --shadow-sm:       0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-card:     0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 12px 30px -4px rgba(0, 0, 0, 0.10), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  letter-spacing: -0.011em;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.025em;
+  color: var(--text-main);
+  font-weight: 800;
+}
+
+a { color: inherit; text-decoration: none; transition: all 0.15s ease; }
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-canvas); }
+::-webkit-scrollbar-thumb { background: #d4d4d0; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a8a8a3; }
+
+/* ── Glass Card ───────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(229, 229, 227, 0.6);
+  border-radius: 14px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+/* ── Primary Button (Garage Green) ────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: #ffffff;
+  border: 1px solid var(--accent-hover);
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(28, 25, 23, 0.15);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-hover) 0%, #064e33 100%);
+  box-shadow: 0 6px 16px rgba(10, 124, 75, 0.22);
+  transform: translateY(-1px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+/* ── Secondary Button ─────────────────────────────────────── */
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-secondary:hover {
+  background: var(--bg-canvas);
+  border-color: var(--border-subtle);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.btn-secondary:active { transform: translateY(0); }
+
+/* ── Status Badges ─────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3.5px 10px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.badge-pending   { background: #fef9ee; color: #92400e; border: 1px solid #fcd88a; }
+.badge-progress  { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+.badge-completed { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.badge-delivered { background: #fafaf9; color: #44403c; border: 1px solid #e5e5e3; }
+.badge-active    { background: #e8f8f2; color: #0a7c4b; border: 1px solid #a7e3cc; }
+
+/* ── Inputs ────────────────────────────────────────────────── */
+input, select, textarea { font-family: var(--font-inter); }
+.input-glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 9px 13px;
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.input-glass:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--success-light, #e8f8f2), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
+}
+
+/* ── Table Rows ────────────────────────────────────────────── */
+table { width: 100%; border-collapse: separate; border-spacing: 0; }
+thead th { 
+  position: sticky; 
+  top: 0; 
+  z-index: 10; 
+  background: var(--bg-card);
+  box-shadow: 0 1px 0 var(--border-color);
+}
+table tbody tr { transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
+table tbody tr:hover { 
+  background-color: var(--bg-card-subtle) !important;
+  transform: scale(1.002);
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+  position: relative;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SIDEBAR — Light Theme
+   ══════════════════════════════════════════════════════════ */
+
+.sidebar-container {
+  position: fixed; top: 16px; left: 16px; bottom: 16px; z-index: 40;
+  width: 270px;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  display: flex; flex-direction: column; height: calc(100vh - 32px);
+  box-shadow: var(--shadow-card);
+  font-family: var(--font-inter);
+  user-select: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Main Content Wrapper ─────────────────────────────────────── */
+.main-content {
+  margin-left: 310px;
+  flex: 1;
+  padding: 24px 32px 40px;
+  min-width: 0;
+}
+@media (max-width: 1100px) {
+  .main-content {
+    margin-left: 0;
+    padding: 64px 16px 24px; /* padding top for mobile menu button */
+  }
+  .sidebar-container {
+    transform: translateX(-150%);
+  }
+  .sidebar-container.mobile-open {
+    transform: translateX(0);
+  }
+  .mobile-menu-btn {
+    display: block !important;
+  }
+}
+@media (min-width: 1101px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+.sidebar-header {
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--border-color);
+  background: #ffffff;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.sidebar-brand-icon {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: linear-gradient(135deg, #0a7c4b 0%, #065c37 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(10, 124, 75, 0.22);
+}
+
+.sidebar-brand-title {
+  font-family: var(--font-heading);
+  font-weight: 800; color: var(--text-main);
+  font-size: 18px; letter-spacing: -0.02em;
+}
+
+.sidebar-brand-badge {
+  background: linear-gradient(135deg, #0a7c4b 0%, #086b40 100%);
+  color: #ffffff; font-size: 10px; font-weight: 900;
+  padding: 2px 7px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em; margin-left: 6px;
+}
+
+.sidebar-sub-caption {
+  font-size: 11.5px; color: var(--text-subtle);
+  font-weight: 500; display: flex; align-items: center;
+  gap: 6px; margin-top: 3px;
+}
+
+.sidebar-status-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background-color: #0a7c4b;
+  box-shadow: 0 0 6px rgba(10, 124, 75, 0.6);
+}
+
+.sidebar-scroll-area {
+  flex: 1; overflow-y: auto;
+  padding: 14px 10px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+
+.sidebar-category-header {
+  font-size: 10px; font-weight: 800;
+  color: #b9b5b0; text-transform: uppercase;
+  letter-spacing: 0.10em; padding: 0 10px; margin-bottom: 4px;
+}
+
+.sidebar-nav-item {
+  width: 100%; display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px; border-radius: 9px;
+  font-size: 13px; font-weight: 600;
+  color: var(--text-muted); text-decoration: none;
+  transition: all 0.15s ease;
+  border-left: 3px solid transparent;
+}
+.sidebar-nav-item:hover {
+  background: var(--bg-canvas);
+  color: var(--text-main);
+  transform: translateX(2px);
+}
+.sidebar-nav-item-active {
+  background: var(--accent-light) !important;
+  color: var(--accent) !important;
+  border-left: 3px solid var(--accent);
+  font-weight: 700;
+}
+.sidebar-nav-item-active svg { color: var(--accent) !important; }
+
+.sidebar-child-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 10px; border-radius: 7px;
+  font-size: 12px; font-weight: 500;
+  color: var(--text-subtle); text-decoration: none;
+  transition: all 0.15s ease;
+}
+.sidebar-child-item:hover { color: var(--text-main); background: var(--bg-canvas); }
+.sidebar-child-item-active {
+  color: var(--accent) !important;
+  background: var(--accent-light) !important;
+  font-weight: 700;
+}
+
+/* Sidebar Badges */
+.sidebar-badge {
+  font-size: 10.5px; font-weight: 700;
+  padding: 2.5px 8px; border-radius: 20px; line-height: 1;
+}
+.sidebar-badge-indigo { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-border); }
+.sidebar-badge-emerald { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+.sidebar-badge-amber  { background: #fef9ee; color: #b45309; border: 1px solid #fcd88a; }
+.sidebar-badge-cyan   { background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4; }
+.sidebar-badge-slate  { background: #fafaf9; color: #57534e; border: 1px solid #e5e5e3; }
+
+.sidebar-footer {
+  padding: 14px 16px;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-card-subtle);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.sidebar-user-avatar {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: #1c1917; color: #ffffff;
+  font-weight: 800; font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   DARK MODE — Comprehensive override using !important to beat inline styles
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Root Element and Color Scheme */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  background-color: #0c0c0a !important;
+}
+
+/* 2. Body — forced dark bg so no white flash */
+html[data-theme="dark"] body {
+  background-color: #0c0c0a !important;
+  color: #f0ede8 !important;
+}
+
+/* 3. Page wrapper divs (the outer flex container every page uses) */
+html[data-theme="dark"] #__next,
+html[data-theme="dark"] #__next > div,
+html[data-theme="dark"] div[style*="minHeight"],
+html[data-theme="dark"] div[style*="min-height"] {
+  background-color: #0c0c0a !important;
+  color: #f0ede8 !important;
+}
+
+/* 4. <main> element used on every page */
+html[data-theme="dark"] main {
+  background-color: #0c0c0a !important;
+  color: #f0ede8 !important;
+}
+
+/* 5. Glass cards */
+html[data-theme="dark"] .glass-card {
+  background-color: #161614 !important;
+  border-color: #2a2a26 !important;
+  color: #f0ede8 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* 6. ALL text elements — force readable light color */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+  color: #f5f5f2 !important;
+}
+
+html[data-theme="dark"] p,
+html[data-theme="dark"] span,
+html[data-theme="dark"] label,
+html[data-theme="dark"] td,
+html[data-theme="dark"] th,
+html[data-theme="dark"] strong,
+html[data-theme="dark"] li,
+html[data-theme="dark"] a {
+  color: #d8d4ce !important;
+}
+
+/* 7. Don't override colored badge text */
+html[data-theme="dark"] .badge-pending   { background: #1e1a13 !important; color: #fbbf24 !important; border-color: #44380a !important; }
+html[data-theme="dark"] .badge-progress  { background: #1e1510 !important; color: #fb923c !important; border-color: #431a06 !important; }
+html[data-theme="dark"] .badge-completed { background: #0f1f13 !important; color: #4ade80 !important; border-color: #155127 !important; }
+html[data-theme="dark"] .badge-delivered { background: #1c1c1a !important; color: #a8a098 !important; border-color: #2a2a26 !important; }
+html[data-theme="dark"] .badge-active    { background: #0d1f17 !important; color: #34d399 !important; border-color: #0a4a30 !important; }
+
+/* 8. Buttons */
+html[data-theme="dark"] .btn-secondary {
+  background-color: #1e1e1c !important;
+  color: #f0ede8 !important;
+  border-color: #2a2a26 !important;
+}
+html[data-theme="dark"] .btn-secondary:hover {
+  background-color: #2a2a26 !important;
+  color: #ffffff !important;
+}
+
+/* 9. Inputs and form controls */
+html[data-theme="dark"] .input-glass,
+html[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]),
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background-color: #1e1e1c !important;
+  color: #f0ede8 !important;
+  border-color: #2a2a26 !important;
+}
+
+/* 10. Table headers and rows */
+html[data-theme="dark"] thead tr {
+  background-color: #161614 !important;
+}
+html[data-theme="dark"] table tbody tr {
+  border-color: #2a2a26 !important;
+}
+html[data-theme="dark"] table tbody tr:hover {
+  background-color: #1e1e1c !important;
+}
+
+/* 11. Hardcoded background colors on inline divs — override specific light grays */
+html[data-theme="dark"] div[style*="#f8fafc"],
+html[data-theme="dark"] div[style*="#f5f5f4"],
+html[data-theme="dark"] div[style*="#ffffff"],
+html[data-theme="dark"] div[style*="#f1f5f9"],
+html[data-theme="dark"] div[style*="#fafaf9"] {
+  background-color: #0c0c0a !important;
+  color: #f0ede8 !important;
+}
+
+/* 12. Hardcoded text colors override — light-on-dark fallback */
+html[data-theme="dark"] *[style*="color: '#0f172a'"],
+html[data-theme="dark"] *[style*="color: '#09090b'"],
+html[data-theme="dark"] *[style*="color: '#1c1c1a'"],
+html[data-theme="dark"] *[style*="color: '#0a0a09'"],
+html[data-theme="dark"] *[style*="color: rgb(9, 9, 11)"] {
+  color: #f0ede8 !important;
+}
+
+html[data-theme="dark"] *[style*="color: '#64748b'"],
+html[data-theme="dark"] *[style*="color: '#71717a'"],
+html[data-theme="dark"] *[style*="color: '#52525b'"],
+html[data-theme="dark"] *[style*="color: '#78716c'"],
+html[data-theme="dark"] *[style*="color: '#57534e'"] {
+  color: #78716c !important;
+}
+
+/* 13. Modals / overlays */
+html[data-theme="dark"] div[style*="background: '#ffffff'"],
+html[data-theme="dark"] div[style*="background:#ffffff"] {
+  background-color: #161614 !important;
+  color: #f0ede8 !important;
+}
+
+/* 14. SIDEBAR overrides */
+html[data-theme="dark"] .sidebar-container {
+  background-color: #0d0d0b !important;
+  border-right-color: #2a2a26 !important;
+}
+html[data-theme="dark"] .sidebar-header {
+  background-color: #0d0d0b !important;
+  border-bottom-color: #2a2a26 !important;
+}
+html[data-theme="dark"] .sidebar-footer {
+  background-color: #111110 !important;
+  border-top-color: #2a2a26 !important;
+}
+html[data-theme="dark"] .sidebar-brand-title { color: #f5f5f2 !important; }
+html[data-theme="dark"] .sidebar-sub-caption { color: #57534e !important; }
+html[data-theme="dark"] .sidebar-category-header { color: #44403c !important; }
+html[data-theme="dark"] .sidebar-nav-item { color: #6b6760 !important; }
+html[data-theme="dark"] .sidebar-nav-item:hover {
+  background: #1e1e1c !important;
+  color: #f5f5f2 !important;
+}
+html[data-theme="dark"] .sidebar-nav-item-active {
+  background: rgba(10, 124, 75, 0.18) !important;
+  color: #4ade80 !important;
+  border-left-color: #0a7c4b !important;
+}
+html[data-theme="dark"] .sidebar-nav-item-active svg { color: #4ade80 !important; }
+html[data-theme="dark"] .sidebar-child-item { color: #57534e !important; }
+html[data-theme="dark"] .sidebar-child-item:hover {
+  color: #f5f5f2 !important;
+  background: #1e1e1c !important;
+}
+html[data-theme="dark"] .sidebar-child-item-active {
+  color: #4ade80 !important;
+  background: rgba(10, 124, 75, 0.15) !important;
+}
+html[data-theme="dark"] .sidebar-badge-indigo {
+  background: rgba(10, 124, 75, 0.15) !important;
+  color: #4ade80 !important;
+  border-color: rgba(10, 124, 75, 0.3) !important;
+}
+html[data-theme="dark"] .sidebar-badge-slate {
+  background: #1e1e1c !important;
+  color: #78716c !important;
+  border-color: #2a2a26 !important;
+}
+html[data-theme="dark"] .sidebar-badge-amber {
+  background: #1e1a13 !important;
+  color: #d97706 !important;
+  border-color: #44380a !important;
+}
+html[data-theme="dark"] .sidebar-badge-emerald {
+  background: #0f1f13 !important;
+  color: #4ade80 !important;
+  border-color: #155127 !important;
+}
+html[data-theme="dark"] .sidebar-badge-cyan {
+  background: #0d1c1c !important;
+  color: #2dd4bf !important;
+  border-color: #0f4a47 !important;
+}
+html[data-theme="dark"] .sidebar-user-avatar { background: #292524 !important; }
+
+/* 15. Scrollbar in dark mode */
+html[data-theme="dark"] ::-webkit-scrollbar-track { background: #0c0c0a; }
+html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #2a2a26; }
+html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover { background: #3a3a36; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ANIMATIONS & LOADERS
+   ══════════════════════════════════════════════════════════════════════════ */
+@keyframes premium-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(10, 124, 75, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(10, 124, 75, 0); }
+}
+
+.spin-animation {
+  animation: premium-spin 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+.premium-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes snackbar-slide-up {
+  0% { transform: translateY(100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.snackbar-animate-in {
+  animation: snackbar-slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   PRINT MODE — For Invoices
+   ══════════════════════════════════════════════════════════════════════════ */
+@media print {
+  /* Hide UI elements that shouldn't be printed */
+  .sidebar-container, 
+  header,
+  .mobile-menu-btn,
+  #print-hide-actions,
+  .glass-card:not(.print-container) {
+    display: none !important;
+  }
+
+  .print-container {
+    display: block !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  /* Keep the main print area visible */
+  .main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Override dark mode or themed backgrounds for print */
+  body, html {
+    background-color: white !important;
+    color: black !important;
+  }
+}
