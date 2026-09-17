@@ -1,0 +1,16 @@
+remake this form again Register New Customer Vehicle  in which these thing should be there
+
+1.Vechile Type (Drop Down Menu) + (Add & Remove Button)
+2.Vechile Brand (Drop Down Menu) + (Add & Remove Button)
+3.Vechile Name (Drop Down Menu) + (Add & Remove Button)
+4.Vechile Year (Drop Down Menu) + (Add & Remove Button)
+5.Vechile Fuel Type (Drop Down Menu) 
+6.Vechile Color (Drop Down Menu) + (Add & Remove Button)
+7.Vechile Registration Number (Text Field)
+8.Model Name (Drop Down Menu) + (Add & Remove Button)
+9.Number Plate (Text Field)
+10.Service Type (Drop Down Menu) + (Add & Remove Button)
+11.Total Service Done (Text Field)
+12.Next Service Date (Date Field)
+13.Last Service Date (Date Field)
+14.Service KMs (Text Field)

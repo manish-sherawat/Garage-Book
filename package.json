@@ -1,0 +1,21 @@
+{
+  "name": "garagebook-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run start:dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:backend": "npm --prefix backend run build",
+    "build": "npm --prefix frontend run build && npm --prefix backend run build",
+    "dev": "npx -y concurrently \"npm --prefix frontend run dev\" \"npm --prefix backend run start:dev\""
+  },
+  "devDependencies": {
+    "agentation": "^3.0.2"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.4",
+    "@supabase/supabase-js": "^2.111.0",
+    "lucide-react": "^1.27.0"
+  }
+}

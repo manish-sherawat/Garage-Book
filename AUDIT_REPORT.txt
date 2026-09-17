@@ -1,0 +1,132 @@
+================================================================================
+  GARAGEBOOK PRO — FULL SOFTWARE AUDIT REPORT
+  Date: 30 July 2026
+  Auditor: Automated Code Audit (All Frontend Pages & Components)
+  Scope: 11 Pages, 4 Components, 2 Data Files, 1 Utility, CSS, Layout
+================================================================================
+
+
+
+
+
+
+
+================================================================================
+ F. NEW FEATURES / ENHANCEMENTS SUGGESTED
+================================================================================
+
+F1. [NEW] Dark Mode / Theme Toggle
+    App is light-only. Add dark mode toggle in Settings or header bar.
+    globals.css already has CSS variables that could support theming.
+
+F2. [NEW] Real-time notifications panel
+    Add a bell icon in header with dropdown showing recent activities:
+    new jobs, payments received, low stock alerts, bay completions.
+
+F3. [NEW] Service History Timeline per Vehicle
+    In Vehicles page, show a visual timeline of all services performed
+    on each vehicle with dates, costs, and mechanic info.
+
+F4. [NEW] Automated Service Reminders
+    Based on last service date + configurable interval (e.g., 90 days),
+    auto-flag vehicles due for service. Show on Dashboard and CRM.
+
+F5. [NEW] Customer Communication Log
+    WhatsApp/SMS message history per customer. Track sent invoices,
+    reminders, and promotional messages.
+
+F6. [NEW] Multi-user Role-Based Access (RBAC)
+    Currently single-user "Admin Owner". Add roles: Admin, Receptionist,
+    Mechanic, Accountant — each with different page access permissions.
+
+F7. [NEW] Expense Tracker
+    Track shop expenses (rent, utilities, parts purchases, salaries).
+    Feed into Accounting page for real profit/loss calculations.
+
+F8. [NEW] Job Card Status Workflow Automation
+    Auto-advance status: PENDING → IN_PROGRESS (on bay assign) →
+    COMPLETED (on mechanic mark-done) → DELIVERED (on payment).
+
+F9. [NEW] Vehicle Photo Gallery
+    Allow uploading before/after photos per job card for documentation
+    and customer communication.
+
+F10. [NEW] Search Across All Modules (Global Search)
+     Add a universal search bar in header that searches across customers,
+     vehicles, jobs, invoices, and inventory simultaneously.
+
+F11. [NEW] PDF Invoice Download
+     Currently only print preview. Add "Download PDF" button using
+     jsPDF or html2canvas for offline invoice sharing.
+
+F12. [NEW] Mechanic Workload Balancing View
+     Visual dashboard showing each mechanic's current load, queue depth,
+     and estimated availability for new assignments.
+
+F13. [NEW] Parts Low-Stock Auto Reorder Suggestions
+     When parts hit minimum threshold, auto-suggest reorder quantities
+     based on historical consumption patterns.
+
+F14. [NEW] Customer Loyalty / Rewards Points System
+     Track customer visits and spending. Offer service discounts after
+     X visits or Y amount spent.
+
+F15. [NEW] Dashboard — Connect charts to real data
+     Replace static demo arrays with computed values from actual
+     job cards, invoices, inventory, and mechanics data.
+
+
+================================================================================
+ G. PAGE-BY-PAGE SUMMARY TABLE
+================================================================================
+
+ Page               | Status   | Key Issues
+ -------------------|----------|--------------------------------------------
+ / (Dashboard)      | PARTIAL  | Charts static, modals non-functional
+ /jobs              | WORKING  | No backend, data resets on refresh
+ /customers         | WORKING  | Empty registries, no export feature
+ /vehicles          | WORKING  | Duplicated Autofill2, no backend
+ /inventory         | WORKING  | ID collision risk, pagination works
+ /billing           | WORKING  | ID collision, no pagination
+ /accounting        | BROKEN   | All KPIs zero, empty ledger, test button
+ /reports           | PARTIAL  | Time filter non-functional, static data
+ /mechanics         | WORKING  | No backend, data resets on refresh
+ /workshop-bays     | WORKING  | No autofill in assign modal, static timer
+ /settings          | PARTIAL  | Only UPI saves, 2357-line monolith
+ /procurement       | REDIRECT | Stub page, redirects to /inventory
+
+================================================================================
+ H. FILES SUMMARY
+================================================================================
+
+ File                          | Lines  | Notes
+ ------------------------------|--------|----------------------------------------
+ page.tsx (Dashboard)          |  441   | 5 SVG charts, static demo data
+ jobs/page.tsx                 | 1074   | Full job card CRUD
+ customers/page.tsx            | 1379   | CRM with 360-view, largest page
+ vehicles/page.tsx             | 1212   | Vehicle registry, duplicated component
+ inventory/page.tsx            |  608   | Excel import/export, pagination
+ billing/page.tsx              |  596   | GST invoicing, print preview
+ mechanics/page.tsx            | 1071   | Attendance, performance cards
+ settings/page.tsx             | 2357   | 7-tab settings (needs split)
+ reports/page.tsx              |  212   | Bar chart, leaderboard
+ accounting/page.tsx           |  161   | Empty shell, needs work
+ workshop-bays/page.tsx        |  258   | Bay board with assign/release
+ procurement/page.tsx          |   21   | Redirect stub
+ Sidebar.tsx                   |  341   | Navigation with sub-menus
+ PaymentModal.tsx              |  204   | UPI QR, multi-method payment
+ BarcodeScannerModal.tsx       |  112   | Simulated scanner, manual entry
+ AgentationWrapper.tsx         |    9   | Dev-only wrapper
+ globals.css                   |  217   | Design system, glass-card
+ page.module.css               |  143   | UNUSED — dead code
+ customerRegistry.ts           |   16   | Empty array, interface only
+ vehicleRegistry.ts            |   35   | Empty array, interface only
+ format.ts                     |    6   | Currency formatter (en-IN)
+ layout.tsx                    |   28   | Root layout, fonts, metadata
+
+================================================================================
+ TOTAL ISSUES FOUND: 16 Bugs, 9 Non-Working, 33 Working, 8 Placement,
+                     15 Improvements, 15 New Suggestions
+================================================================================
+ END OF AUDIT REPORT
+================================================================================
