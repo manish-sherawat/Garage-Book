@@ -13,7 +13,7 @@ export default function AuthWrapper({ children }: { children: React.ReactNode })
     
     const checkRoleAndRedirect = async (jwt: string) => {
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://garagebook-new.vercel.app/api/v1';
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? 'https://garagebook-new.vercel.app/api/v1' : 'http://localhost:5000/api/v1');
         const res = await fetch(`${apiUrl}/auth/me`, {
           headers: { Authorization: `Bearer ${jwt}` }
         });

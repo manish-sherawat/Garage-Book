@@ -352,7 +352,7 @@ function InventoryContent() {
     setInventory([newItem, ...inventory]);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://garagebook-new.vercel.app/api/v1';
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? 'https://garagebook-new.vercel.app/api/v1' : 'http://localhost:5000/api/v1');
       await fetch(`${apiUrl}/procurement/inventory`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
