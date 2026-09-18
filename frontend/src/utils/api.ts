@@ -14,7 +14,7 @@ export class ApiError extends Error {
 
 async function safeFetch<T>(endpoint: string, options?: RequestInit): Promise<T | null> {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 8000);
+  const timeoutId = setTimeout(() => controller.abort(new Error('Request timed out after 8s')), 8000);
 
   try {
     const token = typeof window !== 'undefined' ? localStorage.getItem('garagebook_token') : null;
