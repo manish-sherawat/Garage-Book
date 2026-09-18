@@ -1,4 +1,7 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? 'https://garagebook-new.vercel.app/api/v1' : 'http://localhost:5000/api/v1');
+let API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? 'https://garagebook-new.vercel.app/api/v1' : 'http://localhost:5000/api/v1');
+if (API_BASE_URL && !API_BASE_URL.endsWith('/api/v1')) {
+  API_BASE_URL = `${API_BASE_URL.replace(/\/$/, '')}/api/v1`;
+}
 
 export class ApiError extends Error {
   status: number;

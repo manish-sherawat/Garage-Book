@@ -17,7 +17,10 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? 'https://garagebook-new.vercel.app/api/v1' : 'http://localhost:5000/api/v1');
+      let apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? 'https://garagebook-new.vercel.app/api/v1' : 'http://localhost:5000/api/v1');
+      if (apiUrl && !apiUrl.endsWith('/api/v1')) {
+        apiUrl = `${apiUrl.replace(/\/$/, '')}/api/v1`;
+      }
       const res = await fetch(`${apiUrl}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
